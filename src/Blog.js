@@ -20,10 +20,16 @@ class Blog extends React.Component {
     })
   }
   render () {
+    marked.setOptions({
+  highlight: function (code) {
+    return require('highlight.js').highlightAuto(code).value;
+  }
+});
 let content = this.state.wait ? '请稍等' : marked(this.state.data)
     return(
       <div>
-        <div dangerouslySetInnerHTML={{__html:content}} />
+
+        <div dangerouslySetInnerHTML={{__html:content}} className="post-content"/>
       </div>
     )
   }
