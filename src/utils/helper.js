@@ -12,7 +12,7 @@ function searchGit(add){
 export {searchGit };
 
 function getJson() {
-  let address = `https://raw.githubusercontent.com/newming/demodata/master/card.json`;
+  let address = `https://raw.githubusercontent.com/songyuhan0914/9-18/master/card.json?${Math.random()}`;
   return axios.get(address)
     .then( (res) => (
       { getJson:res.data }
@@ -23,3 +23,16 @@ function getJson() {
 }
 
 export { getJson };
+
+function getmd(add) {
+  let address = `https://raw.githubusercontent.com/songyuhan0914/9-18/master/blog/${add}.md`;
+  return axios.get(address)
+    .then( (res) => (
+      { getmd:res.data }
+    ))
+    .catch(function (error) {
+      alert(error);
+    });
+}
+
+export { getmd };
